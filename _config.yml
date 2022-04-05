@@ -1,8 +1,9 @@
 title: Kihyo Park
 logo: /assets/img/me.png
 description: 박기효 [pak̚.g̊i.ço]
-show_downloads: true
+baseurl: ""
 url: "https://kihyo-park.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
+show_downloads: false
 google_analytics:
+markdown: kramdown
 theme: jekyll-theme-minimal
