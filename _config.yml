@@ -2,5 +2,9 @@ title: Kihyo Park
 logo: /assets/img/me.png
 description: 박기효 [pak̚.g̊i.ço]
 show_downloads: true
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 google_analytics:
 theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
