@@ -1,7 +1,7 @@
 title: Kihyo Park
 description: 박기효 [pak̚.g̊i.ço]
 baseurl: ""
-url: "https://kihyo-park.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://kihyo-park.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 logo: /assets/img/me.png
 show_downloads: false
 google_analytics:
