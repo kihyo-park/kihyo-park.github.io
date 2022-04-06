@@ -42,7 +42,7 @@ permalink: /stats/
 * 비용: **무료**
 
 - 기한: 4월 25일 23시 59분까지 (한국 시간 기준)
-  - 이 영상(!수정 예정!)을 **<ins>반드시</ins>** 시청한 후 아래 링크를 통해 신청서 제출
+  - 이 [영상](https://youtu.be/VedQCKrWTIs)을 **<ins>반드시</ins>** 시청한 후 아래 링크를 통해 신청서 제출
 
 - 신청법: [신청하기](https://forms.gle/Ub5ugMWZqiMEH5eG9)
 
