@@ -23,15 +23,15 @@
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
-        <p style="font-size:16px"><b><a href="/about/">About me</a></b></p>
+        <p style="font-size:16px"><b><a href="{{ "/about/" | absolute_url }}">About me</a></b></p>
 
-        <p style="font-size:16px"><b><a href="/cv/">CV</a></b></p>
+        <p style="font-size:16px"><b><a href="{{ "/cv/" | absolute_url }}">CV</a></b></p>
 
         <!-- <p style="font-size:16px"><b><a href="/research/">Research</a></b></p> -->
 
         <!-- <p style="font-size:16px"><b><a href="/publications/">Publications</a></b></p> -->
 
-        <p style="font-size:16px"><b><a href="/stats_kor/">통계분석법 세미나</a></b></p>
+        <p style="font-size:16px"><b><a href="{{ "/stats_kor/" | absolute_url }}">통계분석법 세미나</a></b></p>
 
         {% if site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
