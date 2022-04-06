@@ -3,12 +3,12 @@ layout: default
 title: Home
 ---
 
-Hi! I'm a Ph.D. student in the [Linguistics department](https://linguistics.cornell.edu) at Cornell University working with [Marten van Schijndel](https://vansky.github.io) and [Helena Aparicio](https://scholar.google.com/citations?user=LqWApX8AAAAJ&hl=en). 
+Hi! I'm a Ph.D. student in the [Linguistics department](https://linguistics.cornell.edu) at Cornell University working with Dr. [Marten van Schijndel](https://vansky.github.io) and Dr. [Helena Aparicio](https://scholar.google.com/citations?user=LqWApX8AAAAJ&hl=en). 
 
 I study how our minds work on language processing, which always makes me an excited language nerd.
 
 My main research areas are in human sentence processing and experimental pragmatics, but I'm also very interested in applying formal methods from statistics and computational modelling/NLP into human language processing.
 
-And I'm a visiting researcher at Brain and Cognition Research Center at Konkuk University, where I finished my Masters on Korean psycholinguistics with prof. Upyong Hong (홍우평) and prof. Yunju Nam (남윤주).
+And I'm a visiting researcher at Brain and Cognition Research Center at Konkuk University, where I finished my Masters on Korean psycholinguistics, advised by Dr. Upyong Hong (홍우평) and Dr. Yunju Nam (남윤주).
 
 Other than these, I'm a [lefty](/assets/img/lefty.png), and a (right-handed) [guitarist](/assets/img/me_guitarist.png).
