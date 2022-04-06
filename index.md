@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Home
 ---
 
 Hi! I'm a Ph.D. student in the [Linguistics department](https://linguistics.cornell.edu) at Cornell University working with [Marten van Schijndel](https://vansky.github.io) and [Helena Aparicio](https://linguistics.cornell.edu/helena-aparicio). 
