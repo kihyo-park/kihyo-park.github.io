@@ -44,7 +44,7 @@ permalink: /stats/
 - 기한: 4월 25일 23시 59분까지 (한국 시간 기준)
   - 이 영상(!수정 예정!)을 **<ins>반드시</ins>** 시청한 후 아래 링크를 통해 신청서 제출
 
-- 신청법: [이 링크를 통해 신청!](https://forms.gle/Ub5ugMWZqiMEH5eG9)
+- 신청법: [신청하기](https://forms.gle/Ub5ugMWZqiMEH5eG9)
 
 * 세미나 Zoom 및 SLACK 초대 링크 공유: 4월 27일 
 
