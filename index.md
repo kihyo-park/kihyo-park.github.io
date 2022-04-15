@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-Hi! I'm a Ph.D. student in the [Linguistics department](https://linguistics.cornell.edu) at Cornell University working with Dr. [Marten van Schijndel](https://vansky.github.io) and Dr. [Helena Aparicio](https://scholar.google.com/citations?user=LqWApX8AAAAJ&hl=en). 
+Hi! I'm an incoming Ph.D. student in the [Linguistics department](https://linguistics.cornell.edu) at Cornell University working with Dr. [Marten van Schijndel](https://vansky.github.io) and Dr. [Helena Aparicio](https://scholar.google.com/citations?user=LqWApX8AAAAJ&hl=en). 
 
 I study how our minds work on language processing, which always makes me an excited language nerd.
 
