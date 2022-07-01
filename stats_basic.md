@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 통계분석법 세미나
-permalink: /stats/
+title: 기초 확률과 통계
+permalink: /stats_basic/
 ---
 
-# 실험심리언어학도를 위한 통계 분석법 세미나
+# 실험심리언어학도를 위한 기초 통계와 확률
 
 * * *
 
