@@ -47,8 +47,14 @@ permalink: /stats_basic/
 ## 수업 내용
 
 <details>
-<summary>**내용 접기/펼치기**</summary>
+<summary>내용 접기/펼치기</summary>
+
 <div markdown="1">
+
+|시간\날짜|13일(수)|14일(목)|15일(금)| 
+|--|--|--|--|
+|1|2|3|4|
+|2|10|3|4|
 
 **7월 13일(수)**
 
