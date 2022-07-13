@@ -53,7 +53,7 @@ permalink: /stats_basic/
 
 <div markdown="1">
 
-**7월 13일(수)** [수업 자료 슬라이드](/assets/files/day1.pdf)
+**7월 13일(수)** [수업 자료 슬라이드](/assets/files/day1.pdf) / [R 스크립트](/assets/files/R_basic.R) 
 - 시작하기 앞서...
 - 통계와 확률이 줄 수 있는 것과 못 주는 것
   - 과학과 이론, 그리고 통계
@@ -71,7 +71,7 @@ permalink: /stats_basic/
   - 통계적 모형
   - 모수통계와 비모수통계
 
-**7월 14일(목)** [수업 자료 슬라이드](/assets/files/day2.pdf)
+**7월 14일(목)** [수업 자료 슬라이드](/assets/files/day2.pdf) / [R 스크립트](/assets/files/R_CLT.R) 
 - 확률
   - 우리가 다루는 데이터의 모습
   - 좀 더 엄격하게 확률 바라보기
@@ -96,7 +96,7 @@ permalink: /stats_basic/
   - p값에서 절대값 t값으로
   - 신뢰구간
   - 단일표본 t검정
-    - 1종/2종 오류와 검정력
+    - 1종/2종 오류
     - (애증의) p값
 
 </div>
