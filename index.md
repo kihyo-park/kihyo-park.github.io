@@ -9,7 +9,7 @@ I study how our minds work on language processing, which always makes me an exci
 
 My main research areas are in human sentence processing and experimental pragmatics, but I'm also very interested in applying formal methods from statistics and computational modelling/NLP into human language processing.
 
-I'm a member of the [Computational Psycholinguistics Discussions research group](https://c-psyd.github.io) (C.Psyd) and [the Linguistic Meaning](https://lime-lab-cornell.github.io/LiMeWeb/index.html) (LiMe) lab at Cornell University.
+I'm a member of the [Computational Psycholinguistics Discussions research group](https://c-psyd.github.io) (C.Psyd), the [Cornell Computational Linguistics lab](https://conf.ling.cornell.edu/compling/#people) the [Linguistic Meaning](https://lime-lab-cornell.github.io/LiMeWeb/index.html) (LiMe) lab at Cornell University.
 
 And I'm a visiting researcher at Brain and Cognition Research Center at Konkuk University, where I finished my Masters on Korean psycholinguistics, advised by Dr. Upyong Hong (홍우평) and Dr. Yunju Nam (남윤주).
 
