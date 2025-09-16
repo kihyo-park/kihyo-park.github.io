@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+
+// Define what props the component accepts (filename, alt text, etc.)
+interface Props {
+  filename: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+const { filename, alt, width = 500, height = 500 } = Astro.props;
+
+// This is the logic you had before, now inside a component
+const allImages = import.meta.glob('/src/content/blog/rdb-intro/assets/*.png');
+
+// Construct the full path using the filename prop
+const imagePath = `/src/content/blog/rdb-intro/assets/${filename}`;
+
+let imageToRender = null;
+if (allImages[imagePath]) {
+  const imageModule = await allImages[imagePath]();
+  imageToRender = imageModule.default;
+}
+---
+
+{imageToRender && (
+  <Image
+    src={imageToRender}
+    {width}
+    {height}
+    alt={alt}
+  />
+)}
