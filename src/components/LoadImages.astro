@@ -20,7 +20,7 @@ const imagePath = `/src/content/blog/rdb-intro/assets/${filename}`;
 let imageToRender = null;
 if (allImages[imagePath]) {
   const imageModule = await allImages[imagePath]();
-  imageToRender = imageModule.default;
+  imageToRender = (imageModule as any).default;
 }
 ---
 
