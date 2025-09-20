@@ -7,9 +7,11 @@ interface Props {
   alt: string;
   width?: number;
   height?: number;
+  figNumber?: number;
+  caption?: string;
 }
 
-const { filename, alt, width = 500, height = 500 } = Astro.props;
+const { filename, alt, width = 500, height = 500, figNumber, caption } = Astro.props;
 
 // This is the logic you had before, now inside a component
 const allImages = import.meta.glob('/src/content/blog/rdb-intro/assets/*.png');
@@ -25,10 +27,29 @@ if (allImages[imagePath]) {
 ---
 
 {imageToRender && (
-  <Image
-    src={imageToRender}
-    {width}
-    {height}
-    alt={alt}
-  />
+  <figure>
+    <Image
+      src={imageToRender}
+      {width}
+      {height}
+      alt={alt}
+    />
+    {figNumber && caption && (
+      <figcaption>
+      &lt; <strong>Fig {figNumber}</strong>. {caption} &gt;
+      </figcaption>
+    )}
+  </figure>
 )}
+
+<style>
+  figure {
+    margin: 1.5rem 0; /* Add some space around the figure */
+    padding: 0;
+  }
+  figcaption {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+  }
+</style>
