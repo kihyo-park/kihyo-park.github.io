@@ -32,7 +32,7 @@ SQL(사실 "시퀄"이라고 말하는 게 아직도 더 편하긴 하다)을 �
 <LoadImages 
   filename="relation_example.png" 
   alt="relation_example"
-  figNumber={1}
+  figNumber="1"
   caption="관계 예시"
 />
 
@@ -75,11 +75,11 @@ _dom(이름) = 이름, dom(성별) = 성별, dom(제2외국어) = 한국어가 �
 <LoadImages 
   filename="table_example.png" 
   alt="table_example"
-  figNumber={3}
+  figNumber="2"
   caption="실험참여자 관계의 속성과 튜플"
 />
 
-위 < Fig 3. >은 앞서 말했던 실험참여자 관계, 즉, 테이블을 보여준다. 이름, 성별, 나이, 제2외국어는 속성(=열)이며, 이에 대응대는 각 값의 나열을 튜플(=행)으로서 표현되는 것을 알 수 있다. 어떻게 coding 하느냐에 다를 수도 있겠지만, '밝힐 수 없음'은 NULL로서 대신 표기할 수도 있다.
+위 < Fig 2. >은 앞서 말했던 실험참여자 관계, 즉, 테이블을 보여준다. 이름, 성별, 나이, 제2외국어는 속성(=열)이며, 이에 대응대는 각 값의 나열을 튜플(=행)으로서 표현되는 것을 알 수 있다. 어떻게 coding 하느냐에 다를 수도 있겠지만, '밝힐 수 없음'은 NULL로서 대신 표기할 수도 있다.
 
 ## 2.1. 좀 더 엄밀하게 정의하기
 
@@ -91,7 +91,7 @@ $$r(R) \subseteq (dom(A_1) \times dom(A_2) \times ... \times dom(A_n)) $$
 
 $$|dom(A_1)| \times |dom(A_2)| \times ... \times |dom(A_n)|$$
 
-이는 임의의 관계 $$r(R)$$에서 존재하는 모든 튜플들의 가능 조합을 표상하는 것이며, 이 때 특정 시점에 해당되는 관계를 **현재 관계 상태**(current relation state)라 한다. 해당 상태는 실제 세계에 있는 특정 상태에서만 가능한 튜플의 조합을 표상한다. 즉, < Fig 3.> 또한 어떤 현재 관계 상태인 것이다.
+이는 임의의 관계 $$r(R)$$에서 존재하는 모든 튜플들의 가능 조합을 표상하는 것이며, 이 때 특정 시점에 해당되는 관계를 **현재 관계 상태**(current relation state)라 한다. 해당 상태는 실제 세계에 있는 특정 상태에서만 가능한 튜플의 조합을 표상한다. 즉, < Fig 2. > 또한 어떤 현재 관계 상태인 것이다.
 
 ## 2.1.1. 튜플 내 값은 정말로 순서가 있는 걸까?
 
@@ -135,7 +135,7 @@ $$
 <LoadImages 
   filename="restrict.png" 
   alt="restrict"
-  figNumber={2}
+  figNumber="3.1"
   caption="제한 예시"
 />
 
@@ -146,7 +146,7 @@ $$
 <LoadImages 
   filename="projection.png" 
   alt="projection"
-  figNumber={3}
+  figNumber="3.2"
   caption="투사 예시"
 />
 
@@ -157,7 +157,7 @@ $$
 <LoadImages 
   filename="extension.png" 
   alt="extension"
-  figNumber={4}
+  figNumber="3.3"
   caption="확장 예시"
 />
 
@@ -168,18 +168,18 @@ $$
 <LoadImages 
   filename="rename.png" 
   alt="rename"
-  figNumber={5}
+  figNumber="3.4"
   caption="속성명 변경 예시"
 />
 
-말 그대로 속성의 이름을 변경하는 계산이다. 위 &lt; Fig 5. &gt;에서는 단순 원에서 이모지 "🙂" 혹은 미소로 변경된 것을 속성명 변경이라 할 수 있다. 이처럼 실제로 속성명 변경의 경우 주로 확장된 속성에 대한 명칭을 부여할 때 사용한다.
+말 그대로 속성의 이름을 변경하는 계산이다. 위 &lt; Fig 3.4. &gt;에서는 단순 원에서 이모지 "🙂" 혹은 미소로 변경된 것을 속성명 변경이라 할 수 있다. 이처럼 실제로 속성명 변경의 경우 주로 확장된 속성에 대한 명칭을 부여할 때 사용한다.
 
 **합집합(Union)**
 
 <LoadImages 
   filename="union.png" 
   alt="union"
-  figNumber={6}
+  figNumber="3.5"
   caption="합집합 예시"
 />
 
@@ -190,7 +190,7 @@ $$
 <LoadImages 
   filename="intersection.png" 
   alt="intersection"
-  figNumber={7}
+  figNumber="3.6"
   caption="교집합 예시"
 />
 
@@ -201,36 +201,36 @@ $$
 <LoadImages 
   filename="difference_1.png" 
   alt="difference_1"
-  figNumber={8}
+  figNumber="3.7"
   caption="차집합 예시 (첫번째)"
 />
 
 <LoadImages 
   filename="difference_2.png" 
   alt="difference_2"
-  figNumber={9}
+  figNumber="3.8"
   caption="차집합 예시 (두번째)"
 />
 
-차집합은 두 개의 관계 중 한 쪽에만 포함되어 있는 튜플로 구성된 관계를 반환한다. 이 때 주의할 점이 있는데, 바로 &lt; Fig 8. &gt;, &lt; Fig 9. &gt;처럼 어느 관계를 기준으로 차집합 연산을 하느냐에 따라 결과가 달라질 수 있다는 점이다.
+차집합은 두 개의 관계 중 한 쪽에만 포함되어 있는 튜플로 구성된 관계를 반환한다. 이 때 주의할 점이 있는데, 바로 &lt; Fig 3.7. &gt;, &lt; Fig 3.8. &gt;처럼 어느 관계를 기준으로 차집합 연산을 하느냐에 따라 결과가 달라질 수 있다는 점이다.
 
 **곱집합(Product)**
 
 <LoadImages 
   filename="product.png" 
   alt="product"
-  figNumber={10}
+  figNumber="3.9"
   caption="곱집합 예시"
 />
 
-곱집합은 두 개의 관계에 있는 튜플을 각각 조합된 관계를 반환한다. &lt; Fig 10. &gt;를 기준으로 본다면 이는 $\{x, y\} \times \{a, b, c\}$와  $\{w, p\} \times \{a, b, c\}$이 반환한 값과 동일하다. 이렇게 반환된 관계가 있을 때 그 제목은 기존 관계의 제목이 가진 속성을 모두 포함한다.
+곱집합은 두 개의 관계에 있는 튜플을 각각 조합된 관계를 반환한다. &lt; Fig 3.9. &gt;를 기준으로 본다면 이는 $\{x, y\} \times \{a, b, c\}$와  $\{w, p\} \times \{a, b, c\}$이 반환한 값과 동일하다. 이렇게 반환된 관계가 있을 때 그 제목은 기존 관계의 제목이 가진 속성을 모두 포함한다.
 
 **결합(Join)**
 
 <LoadImages 
   filename="inner_join.png" 
   alt="inner_join"
-  figNumber={11}
+  figNumber="3.10"
   caption="(내부) 결합 예시"
 />
 
