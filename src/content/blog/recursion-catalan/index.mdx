@@ -8,6 +8,8 @@ authors: ['Kihyo']
 draft: true
 ---
 
+## 자연어에서의 재귀
+
 자료구조와 알고리즘을 공부하다보면 꼭 만나게 되는 개념 중 하나가 바로 재귀(recursion)다. 함수가 재귀하지 않음으로써 본인 스스로가 무한히 호출되지 않는 기저 조건(base case)을 갖고 있고 이후엔 induction step을 따라서 계산되는 바로 그것. 수학에서는 수리적 귀납법(mathematical induction or a proof by induction)이라는 증명 테크닉으로서 소개된다.
 
 이 재귀라는 개념은 사실 언어학에서도 굉장히 중요하게 다루어지는데 (특히 통사론), 인간의 언어능력(language faculty)의 창조성 혹은 창의성을 보여주는 특징 중 하나로서 관찰되기 때문이다. 예컨대 아래 문장들을 보자.
@@ -20,6 +22,8 @@ draft: true
 </ul>
 
 (1a)에서 (1d)를 살펴보면 문장이 점점 더 길어지는 것을 알 수 있는데, 결국엔 소유의 기능을 나타내는 '-의'라는 조사를 이용해 문장을 생성시키는 것을 알 수 있다. 다시 말해, 'X의 Y의 Z의 ...'와 같은 재귀를 보여주는 것이다.
+
+## 1, 1, 2, 5, 14 ...
 
 통사론이나 언어학개론 수업에서 재귀를 배울 때 보통은 그냥 어떤 문법 규칙을 갖고선 그 규칙을 이용해 무한한 길이의 문장을 만들 수 있다는 점을 배우고 앞서 말했듯 인간의 언어능력의 창조성 또는 창의성을 보여주는 걸로 끝나는 경우가 많다. 사실 이 재귀란 건 구문분석(parsing) 관점 수학적으로 재밌는 점을 하나 엿볼 수 있다.
 이번에는 영어 예시를 한 번 봐보자.
@@ -52,68 +56,120 @@ draft: true
   <li>(3f) Put [the block in the box] [on the table in the kitchen].</li>
 </ul>
 
-그리고 여기서 만약 전치사구가 또 하나 더 생성된다면, 구문분석을 할 수 있는 경우의 수는 위 5가지 경우보다 훨씬 더 많아질 거다. 직접 쓰면 머리만 아퍼질 때니 조금 더 간단한 구조를 가진 걸 갖고 이야기 해보자. 다음과 같은 생성 규칙을 지닌 문법이 있다고 하자.
+그리고 여기서 만약 전치사구가 또 하나 더 생성된다면, 구문분석을 할 수 있는 경우의 수는 위 5가지 경우보다 훨씬 더 많아질 거다. 직접 쓰면 머리만 아퍼질 때니 조금 더 간단한 구조를 갖고 이야기 해보자. 다음과 같은 생성 규칙을 지닌 문법이 있다고 하자.
 
 <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-  <li>(4) $$NP \rightarrow $$ 은지 $$| NP$$ 그리고 $$NP$$</li>
+  <li>(4) $$NP \rightarrow $$ 은지 $$|\; NP$$ 그리고 $$NP$$</li>
 </ul>
 
-(4)에서 
+(4)에서 NP는 명사구(Noun Phrase)의 약자다. "예쁜 은지", "그 똑똑한 사람", "멋있는 베이스를 치는 료"와 같은 게 그 예시들인데, 사실 NP에 대한 생성규칙(예: $$NP \rightarrow (det)\; N$$)을 만들어야하나 이 포스트에선 크게 중요하지 않은 부분이므로 단순히 명사를 지칭하는 걸로 하자.
 
-먼저 $$X$$가 임의의 명사라 할 때, $$X_{n}$$에 대한 생성 규칙을 정의한다. 
+다시 생성 규칙 (4)로 돌아가보자. 먼저 (4)는 아래 두 개의 문장들을 생성한다.
 
 <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-  <li>(4) $$X_{n} =$$ 은지 + $$(X_{n-1}$$ • 그리고 • $$X_{n-1})$$</li>
+  <li>(4a) 은지</li>
+  <li>(4b) 은지<sub>1</sub> 그리고 은지<sub>2</sub></li>
+</ul>
+
+(4b)에서 "은지<sub>1</sub>"과 "은지<sub>2</sub>"는 명사, 즉, NP이므로 생성 규칙 (4)를 재귀적으로 각각 적용할 수 있다.
+
+<ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+  <li>(4c) 은지<sub>1</sub> 그리고 은지<sub>3</sub> 그리고 은지<sub>2</sub></li>
+  <li>(4d) 은지<sub>1</sub> 그리고 은지<sub>2</sub> 그리고 은지<sub>3</sub></li>
+</ul>
+
+보다시피 (4c)와 (4d)를 생성했는데 각각 "은지"의 라벨링(=아래첨자 숫자)가 서로 다른 것을 알 수 있다. 이를 좀 더 구문분석에 친화적으로 표기를 바꾸면 다음과 같다.
+
+<ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+  <li>(4e.I) [[은지 그리고 은지] 그리고 은지]</li>
+  <li>(4e.II) [은지 그리고 [은지 그리고 은지]]</li>
+</ul>
+
+즉, 구문분석 단계에서는 "은지 그리고 은지 그리고 은지"는 앞서 살펴보면 영어 문장 (2) ~ (3)처럼 중의적이기에 (4e.I) 또는 (4e.II)로 분석될 수 있다는 걸 알 수 있다. 즉, 두 개의 트리가 생기는 것이다. 우리는 이러한 트리를 중의성 계수(ambiguity coefficient)라 하자. 이를 적용하면 (4e)의 중의성 계수는 2임을 알 수 있으며, (4e)에서 생성규칙 (4)를 다시 적용하면 위 영어 문장 (3)처럼 5개의 구문분석이 시행 가능한 트리가 나오며 이는 중의성 계수가 5임을 보여준다. 이를 순차적으로 쭉 표현하면 다음과 같다.
+
+<ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+   <li>(5a) 1[은지]</li>
+   <li>(5b) 1[은지 그리고 은지]</li>
+   <li>(5c) 2[은지 그리고 은지 그리고 은지]</li>
+   <li>(5d) 5[은지 그리고 은지 그리고 은지 그리고 은지]</li>
+   <li>(5e) 14[은지 그리고 은지 그리고 은지 그리고 은지 그리고 은지]</li>
+   <li> ... </li>
+</ul>
+
+따라서 우리는 (5)와 같은 상황들을 아래와 같이 일반화해볼 수 있다. 먼저 $$X$$가 임의의 명사구 NP라 할 때, $$X_{n}$$에 대한 생성 규칙을 아래와 같이 정의한다. 
+
+<ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+  <li>(6) $$X_{n} =$$ 은지 + $$(X_{n-1}$$ • 그리고 • $$X_{n-1})$$</li>
 </ul>
 
 (4)에서 "+"는 하나의 명사를 생성하는 두 가지 다른 방식을 연결(connect)하는 기능을 하며, "•"은 하나의 명사를 결합(concatenate)하는 기능을 한다 ("은지"와 "그리고" 대신에 다른 명사나 접속사가 되어도 상관없다. 예컨대 "봇치"와 "하지만"도 가능.). 이 표현들이 어색하다면 배커스-나우르 표기법(BNF)으로 쓰면 다음과 같이 표현 가능하다.
 
 <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-  <li>(4a) $$X_{n} ::=$$ 은지 | $$(X_{n-1}$$ • 그리고 • $$X_{n-1})$$</li>
+  <li>(6a) $$X_{n} ::=$$ 은지 | $$(X_{n-1}$$ • 그리고 • $$X_{n-1})$$</li>
 </ul>
 
 또한 $$X_{0}$$에 대해서 먼저 아래와 같이 기저 조건을 정의한다.
 
 <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-  <li>(5) $$X_{0} = 0$$</li>
+  <li>(7) $$X_{0} = 0$$</li>
 </ul>
 
+이제 (7)과 (6)을 이용해 연속 근사(successive approximation)을 해보자. 사실 (3) ~ (5)에서 했던 걸 다시 반복하는 거다.
 
+<ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+  <li>(8a) $$X_{0} = 0$$</li>
+  <li>(8b) $$X_{1} =$$ 은지 + $$X_{0}$$ • 그리고 • $$X_{0}$$<br/> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            $$=$$ 은지 + $$0$$ • 그리고 • $$0$$<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            $$=$$ 은지</li>
+  <li>(8c) $$X_{2} =$$ 은지 + $$X_{1}$$ • 그리고 • $$X_{1}$$<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            $$=$$ 은지 + 은지 그리고 은지</li>
+  <li>(8d) $$X_{3} =$$ 은지 + $$X_{2}$$ • 그리고 • $$X_{2}$$<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            $$=$$ 은지 + $$($$ 은지 + 은지 그리고 은지 $$)$$ • 그리고 • $$($$ 은지 + 은지 그리고 은지 $$)$$<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            $$=$$ 은지 + 은지 그리고 은지<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+            은지 그리고 은지 그리고 은지<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+            은지 그리고 은지 그리고 은지<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+            은지 그리고 은지 그리고 은지 그리고 은지<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            $$=$$ 은지 + 은지 그리고 은지<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+            2(은지 그리고 은지 그리고 은지)<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+            은지 그리고 은지 그리고 은지 그리고 은지</li>
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</li>
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</li>
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</li>
+</ul>
 
+이와 같은 방식으로 쭉 근사를 한 것을 수열처럼 표현하면 다음과 같다. (제곱 표시는 괄호 안의 단어 전체가 제곱만큼 반복된다는 것이다.)
 
-좋든 싫든 간에, 어찌됐든 이 방정식이 무엇을 보여줄지 알아내야만 하는 상황에 놓여있다고 치죠. 일단 n = 0일 때, (3)은 아래와 같은 결과를 내놓는다고 합시다.
+<ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+  <li>(9) $$X =$$ 1(은지)<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+           1(은지 그리고 은지)<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+           2은지 (그리고 은지)$$^2$$<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+           5은지 (그리고 은지)$$^3$$<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 
+           14은지 (그리고 은지)$$^4$$<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +
+           ...</li>                        
+</ul>
 
-(3a) X0 = 0
+5와 비슷한 모양새를 갖고 있다. 즉, 5가 보여주는 중의성 계수들인 1, 1, 2, 5, 14 ...이 (9)에서도 똑같이 나타난다는 것이다. 그리고 이는 사실 **카탈랑 수**(Catalan numbers)를 나타낸다. 
+실제로 [On-Line Encyclopedia of Integer Sequences에서 A000108 수열](https://oeis.org/A000108)로 등록된 카탈랑 수를 보면 동일한 수열이 나열 되어있는 것을 알 수 있다.
 
-분배법칙, 교환법칙, 항등, 영(0)요소를 가정한다고 했을 때, n=1일 때 (3)은 다음과 같습니다.
+**참고문헌**
 
-(3b) X1 = 철수 + X0 • 그리고 • X0 = 철수 + 0 • 그리고 • 0 = 철수
-
-그리고 n을 양의 방향으로 정수들을 넣다보면 다음과 같은 결과들이 전개됩니다.
-
-(3c) X2 = 철수 + X1 • 그리고 • X1 = 철수 + 철수 그리고 철수
-
-(3d) X3 = 철수 + X2 • 그리고 • X2 = 철수 + (철수 + 철수 그리고 철수) • 그리고 • (철수 + 철수 그리고 철수) 
-
-= 철수 + 철수 그리고 철수 + 철수 그리고 철수 그리고 철수 + 철수 그리고 철수 그리고 철수 + 철수 그리고 철수 그리고 철수 그리고 철수 
-
-= 철수 + 철수 그리고 철수 + 2(철수 그리고 철수 그리고 철수) + 철수 그리고 철수 그리고 철수 그리고 철수
-.....
-
-위 전개를 단순화 시켜볼까요? x^i는 x ⋅ x ⋅ ... ⋅ x, i번 곱한다는 제곱이라고 하면, 위 전개식은 다음과 같은 수열로 만들 수 있습니다.
-
-(4) X = 1철수 + 1(철수 그리고 철수) + 2철수(그리고 철수)^2 + 5철수(그리고 철수)^3 + 14철수(그리고 철수)^4 + ...
-
-혹시 뭔가 익숙한 패턴이 보이시나요? 그렇습니다. 이 패턴은 바로 조합론에서 나오는 카탈랑 수(Catalan number)입니다. 카탈랑 수는 다음과 같이 정의됩니다.
-
-음이 아닌 정수 n에 대해서, n번째 카탈랑 수 Cn은 다음과 같다.
-Cn = (2n)!/n!(n+1)!
-
-위 제시된 정의에 1,2,3 ... n을 순서대로 넣어보면, 1, 1, 2, 5, 14 ... 순으로 값이 나오는 걸 알 수 있습니다. 즉, 사실 (4)는 카탈랑 수와 비례 관계를 이루고 있다는 것이죠. 다른 말로 하자면, 카탈랑 수와 비례 관계를 지닌 문장의 구문분석 방식은 최소 1개에서, 45950804324621742364개 이상(...)이라는 것입니다. 
-물론, 실제로 우리가 의사소통 상황에서 저런 말을 하느냐고 물어본다면 저는 당연히 아니라고 말할 겁니다. 하지만 그 이전에, 우리가 저런 말을 쓸 수 있다는 능력을 갖고 있거나 아니면 언어가 저런 성질을 갖고 있으며 한 때 전산언어학자들에게 중요한 주제로서 연구됐다는 점을 이야기하고 싶네요. 사실 지금까지 한 내용들은 아실만한 분들은 다 아시는 거겠지만...무엇보다 이거 되게 씐기하지 않나여 여러분? 여러분 수학이 킹왕짱입니다. 수학 공부합시다. 
-
-참고문헌:
-Church, K., Patil, R. (1982). Coping with syntactic ambiguity or how to put the block in the box on the table. American Journal of Computational Linguistics.
+Church, K., Patil, R. (1982). Coping with syntactic ambiguity or how to put the block in the box on the table. _American Journal of Computational Linguistics_.
 
 [^1]: 이 두 개의 해석 중에 어느 것이 선호되느냐는 또 다른 문제다.
 [^2]: 전치사구란 영어를 예시를 들어 얘기하면 in, on, at과 같은 전치사를 중심으로 함께 분포되는 단어들의 집합을 말한다. 참고로 한국어는 후치사(postposition)다.
